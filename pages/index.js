@@ -31,13 +31,13 @@ function Timeline(props) {
             {playlistNames.map((playlistName) => {
                 const video = props.playlists[playlistName];
                 return (
-                    <section>
+                    <section key={playlistName}>
                         <h2>{playlistName}</h2>
                         <div>
                             {
                                 video.map((video) => {
                                     return (
-                                        <a href={video.url}>
+                                        <a key={video.url} href={video.url}>
                                             <img src={video.thumb}></img>
                                             <span>
                                                 {video.title}
