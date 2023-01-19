@@ -1,3 +1,4 @@
+import React from "react";
 import config from "../config.json";
 import styled from "styled-components";
 import { CSSReset } from "../src/components/CSSReset";
@@ -6,6 +7,7 @@ import Header from "../src/components/Header";
 import { StyledTimeline } from "../src/components/Timeline";
 
 function HomePage() {
+    const [valorDoFiltro, setValorDoFiltro] = React.useState("");
     return (
         <>
             <CSSReset/>
@@ -14,9 +16,9 @@ function HomePage() {
                 flexDirection: "column",
                 flex: 1,
             }}>
-                <Menu></Menu>
+                <Menu valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro}></Menu>
                 <Header></Header>
-                <Timeline playlists={config.playlists}></Timeline>
+                <Timeline searchValue={valorDoFiltro} playlists={config.playlists}></Timeline>
             </div>
         </>
     )
@@ -24,7 +26,7 @@ function HomePage() {
 
 export default HomePage
 
-function Timeline(props) {
+function Timeline({searchValue, ...props}) {
     const playlistNames = Object.keys(props.playlists);
     return (
         <StyledTimeline>
@@ -35,7 +37,11 @@ function Timeline(props) {
                         <h2>{playlistName}</h2>
                         <div>
                             {
-                                video.map((video) => {
+                                video.filter((video) => {
+                                    const titleNormalized = video.title.toLowerCase();
+                                    const searchValueNormalized = searchValue.toLowerCase();
+                                    return titleNormalized.includes(searchValueNormalized)
+                                }).map((video) => {
                                     return (
                                         <a key={video.url} href={video.url}>
                                             <img src={video.thumb}></img>

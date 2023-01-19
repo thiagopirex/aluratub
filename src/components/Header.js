@@ -2,7 +2,7 @@ import styled from "styled-components";
 import config from "../../config.json";
 
 const StyledBanner = styled.div`
-    height: 200px;
+    height: 230px;
     background-image: url(${config.banner});
 `
 
