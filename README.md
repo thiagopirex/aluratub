@@ -11,3 +11,8 @@ This repo contains the code of Imersão ReactJS, by Alura
    `npm run dev`
  + open the app on <a href="http://localhost:3000">http://localhost:3000<a/>
 
+## Project structure
+- `_app.js`: Load the basic's project setup. Can be used by all project. Configuration.
+  - Here it's staying the information's Providers about our project
+  - CSSReset
+
