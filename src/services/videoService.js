@@ -10,6 +10,11 @@ export function videoService() {
         getAllVideos() {
             return supabase.from("video")
                 .select("*");
+        },
+
+        insert(video) {
+            return supabase.from("video")
+                .insert(video)
         }
     }
 }
