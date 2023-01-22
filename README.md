@@ -7,6 +7,9 @@ This repo contains the code of Imersão ReactJS, by Alura
    `git clone https://github.com/thiagopirex/aluratube.git`
  + install the dependencies </br>
    `npm install react react-dom next`
+ + config your account to supabase in the file `config.json`:
+   `"supabaseUrl": "?",`
+   `"supabaseKey": "?"`
  + run the app in dev mode <br/>
    `npm run dev`
  + open the app on <a href="http://localhost:3000">http://localhost:3000<a/>
