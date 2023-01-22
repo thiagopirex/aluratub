@@ -9,7 +9,7 @@ function useForm(propsDoForm) {
     const [values, setValues] = React.useState(propsDoForm.initialValues);
     return {
         values,
-        handChange: (evento) => {
+        handleChange: (evento) => {
             const value = evento.target.value;
             const name = evento.target.name;
             setValues({
@@ -38,7 +38,6 @@ export default function RegisterVideo() {
         initialValues: { titulo: "title...", url: "http://...." }
     });
 
-    console.log();
     /**
      * TODO
      * [X] Botão para adicionar vídeo
@@ -60,7 +59,6 @@ export default function RegisterVideo() {
                 &&
                 <form onSubmit={(evento) => {
                     evento.preventDefault();
-                    console.log(formCadastrado.values);
 
                     const novoVideo = {
                         title: formCadastrado.values.titulo,
@@ -89,13 +87,13 @@ export default function RegisterVideo() {
                             placeholder="Título do Vídeo"
                             name="titulo"
                             values={formCadastrado.values.titulo}
-                            onChange={formCadastrado.handChange}
+                            onChange={formCadastrado.handleChange}
                         />
                         <input
                             placeholder="URL"
                             name="url"
                             values={formCadastrado.values.url}
-                            onChange={formCadastrado.handChange}
+                            onChange={formCadastrado.handleChange}
                         /*
                         código inicial:
 
