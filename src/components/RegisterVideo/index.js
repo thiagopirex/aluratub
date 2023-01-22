@@ -66,7 +66,7 @@ export default function RegisterVideo() {
                         title: formCadastrado.values.titulo,
                         url: formCadastrado.values.url,
                         thumb: getThumbnail(formCadastrado.values.url),
-                        playlist: "jogos",
+                        playlist: formCadastrado.values.playlist,
                     }
 
                     // Contrato entre o front x backend
@@ -108,6 +108,17 @@ export default function RegisterVideo() {
                         }}
                         */
                         />
+                        <select
+                            placeholder="Playlist"
+                            name="playlist"
+                            values={formCadastrado.values.playlist}
+                            onChange={formCadastrado.handChange}
+                        >
+                            <option value="Músicas">Músicas</option>
+                            <option value="Jogos">Jogos</option>
+                            <option value="Filmes">Filmes</option>
+                            <option value="Outros">Outros</option>
+                        </select>
                         <button type="submit">
                             Cadastrar
                         </button>
